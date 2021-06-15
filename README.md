@@ -22,6 +22,8 @@ This application is written in JavaScript and is accessible through the command-
 ## Usage
 
 After download, run the application using Node.js by typing "node index.js" into the command-line. The application will prompt you with questions, which you can type out and answer (for questions that ask for user input) or you can select a choice by using the spacebar (for questions that give you choices). Once all the questions are answered, it will generate a README.md file with all of the user input.
+
+[![Walkthrough Video of Application](assets/READMEGenerator.gif)](https://www.awesomescreenshot.com/video/4141615?key=3523442ece84c4a44b376c3851ee6a4e)
     
 ## License
 
