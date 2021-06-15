@@ -1,11 +1,10 @@
-// TODO: Include packages needed for this application
+// Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generate = require('./generateMarkdown.js');
+const generate = require('./utils/generateMarkdown.js');
 
-// TODO: Create an array of questions for user input
-// const questions = [];
+// TODO: Questions for user input
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -67,16 +66,17 @@ const promptUser = () => {
     ])
 };
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-// function writeToFile(data) {}
-const writeToFile = (data) =>
+
+// Function to write README file
+const writeToFile = (data, badge, link) =>
     `# ${data.title}
 
-    ## Description
+${badge}
+
+## Description
     ${data.description}
     
-    ## Table of Contents
+## Table of Contents
     - [Installation](#installation)
     - [Usage](#usage)
     - [License](#license)
@@ -85,31 +85,37 @@ const writeToFile = (data) =>
     - [Questions](#questions)
     
     
-    ## Installation
+## Installation
     ${data.installation}
     
-    ## Usage
+## Usage
     ${data.usage}
     
-    ## License
+## License
+    This project is licensed under [${data.license}](${link}).
     
-    
-    ## Contributing
+## Contributing
     ${data.contributing}
     
-    ## Tests
+## Tests
     ${data.tests}
     
-    ## Questions
+## Questions
     See more of my work on my [GitHub Profile](https://github.com/${data.username}/).
     For any additional questions, reach me at my email: ${data.email}.`;
 
-// TODO: Create a function to initialize app
+// Function to initialize app
 const init = () => {
     promptUser()
-        .then((data) => fs.writeFile('README.md', writeToFile(data)))
-        .then(() => console.log('Successfully wrote to README.md'))
-        .catch((err) => console.error(err));
+        .then((data) => {
+            let {badge, link} = generate.renderLicense(data.license);
+            const readmePageContent = writeToFile(data, badge, link);
+        
+            fs.writeFile('README.md', readmePageContent, (err) =>
+            err ? console.log(err) : console.log('Successfully wrote to README.md')
+            );
+        })
+
 };
 
 // Function call to initialize app
