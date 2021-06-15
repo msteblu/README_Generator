@@ -29,7 +29,7 @@ This project is licensed under [MIT License](https://opensource.org/licenses/MIT
     
 ## Contributing
 
-As of right now, contribution to this application is not something I am actively looking for.
+As of right now, contribution to this application is not something I am actively looking for. 
     
 ## Tests
 
