@@ -1,9 +1,9 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Create variables for license badges and links
 let badge;
 let link;
 
-// called render LicenseBadge
+// Create a function that returns a badge and a link based on which license is passed in.
+// If there is no license, return an empty string: 
 function renderLicense(license) {
   switch(license[0]) {
     case `GNU AGPLv3`:
@@ -42,12 +42,14 @@ function renderLicense(license) {
       badge = "";
       link = "";
   }
+  // Return the respective values for badge and link
   return {
     badge,
     link,
   };
 };
 
+// Export the renderLicense function as well as the values for badge/link
 module.exports = {
   renderLicense,
   badge,

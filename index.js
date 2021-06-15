@@ -1,11 +1,10 @@
 // Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+// Link to the generateMarkdown file, which provides the badge/link for licenses:
 const generate = require('./utils/generateMarkdown.js');
 
-// TODO: Questions for user input
-
+// Prompts for users to collect their input: 
 const promptUser = () => {
     return inquirer.prompt([
         {
@@ -105,14 +104,16 @@ ${badge}
     For any additional questions, reach me at my email: ${data.email}.`;
 
 // Function to initialize app
+// Run the prompts, then pass in the collected data and the correct license badges/links
+// Write out a new README file
 const init = () => {
     promptUser()
         .then((data) => {
-            let {badge, link} = generate.renderLicense(data.license);
+            let { badge, link } = generate.renderLicense(data.license);
             const readmePageContent = writeToFile(data, badge, link);
-        
+
             fs.writeFile('README.md', readmePageContent, (err) =>
-            err ? console.log(err) : console.log('Successfully wrote to README.md')
+                err ? console.log(err) : console.log('Successfully wrote to README.md')
             );
         })
 
