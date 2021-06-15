@@ -73,35 +73,42 @@ const writeToFile = (data, badge, link) =>
 ${badge}
 
 ## Description
-    ${data.description}
+
+${data.description}
     
 ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contributing](#contributing)
-    - [Tests](#tests)
-    - [Questions](#questions)
+ - [Installation](#installation)
+ - [Usage](#usage)
+ - [License](#license)
+ - [Contributing](#contributing)
+ - [Tests](#tests)
+ - [Questions](#questions)
     
     
 ## Installation
-    ${data.installation}
+
+${data.installation}
     
 ## Usage
-    ${data.usage}
+
+${data.usage}
     
 ## License
-    This project is licensed under [${data.license}](${link}).
+
+This project is licensed under [${data.license}](${link}).
     
 ## Contributing
-    ${data.contributing}
+
+${data.contributing}
     
 ## Tests
-    ${data.tests}
+
+${data.tests}
     
 ## Questions
-    See more of my work on my [GitHub Profile](https://github.com/${data.username}/).
-    For any additional questions, reach me at my email: ${data.email}.`;
+
+See more of my work on my [GitHub Profile](https://github.com/${data.username}/).
+For any additional questions, reach me at my email: ${data.email}.`;
 
 // Function to initialize app
 // Run the prompts, then pass in the collected data and the correct license badges/links
